@@ -1,5 +1,2 @@
 node_modules/
-dist/
-Videos/
-*.zip
 .web/artifact.html
