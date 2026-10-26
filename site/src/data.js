@@ -26,6 +26,13 @@ export const videos = [
     desc: 'Dive on input, with a camera that shifts framing dynamically from mouse distance and position.',
     tag: 'Combat',
     src: 'videos/HellDiversBasedSystemWithDynamicCamera.mp4'
+  },
+  {
+    n: 5,
+    title: 'Parkour system',
+    desc: 'Movement system with parkour moves, recorded in Studio.',
+    tag: 'Movement',
+    src: 'videos/ParkourSystem.mp4'
   }
 ]
 
@@ -63,7 +70,7 @@ export const tiers = [
 export const stats = [
   { value: '5 yrs', label: 'Scripting in Luau' },
   { value: '9', label: 'System specialties' },
-  { value: '4', label: 'Recorded demos' },
+  { value: String(videos.length), label: 'Recorded demos' },
   { value: '<24h', label: 'Reply time on Discord' }
 ]
 

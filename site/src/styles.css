@@ -244,6 +244,7 @@ a:hover { color: var(--color-accent-600); }
   background: var(--color-bg); padding: 24px;
   display: flex; flex-direction: column; justify-content: flex-end;
 }
+.vcard:nth-child(odd) + .vgrid-tail { grid-column: auto; }
 
 .split {
   display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);

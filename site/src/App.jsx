@@ -81,7 +81,7 @@ export default function App() {
           <section id="work" className="section">
             <div className="sec-head" ref={workHeadRef}>
               <span className="kicker">Work — demo videos</span>
-              <h2>Four systems, recorded in Studio.</h2>
+              <h2>Five systems, recorded in Studio.</h2>
             </div>
             <div className="vgrid" ref={workGridRef}>
               {videos.map((v) => <VideoCard key={v.n} item={v} />)}
