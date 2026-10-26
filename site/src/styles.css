@@ -85,13 +85,15 @@ a:hover { color: var(--color-accent-600); }
   background: var(--color-accent); color: var(--color-bg); border-color: var(--color-accent);
 }
 
-.nav {
-  display: flex; align-items: center; gap: var(--space-4);
-  padding: 12px 56px;
+.nav-bar {
   border-bottom: 2px solid var(--color-divider);
   position: sticky; top: 0; z-index: 40;
   background: color-mix(in srgb, var(--color-bg) 88%, transparent);
   backdrop-filter: blur(8px);
+}
+.nav {
+  display: flex; align-items: center; gap: var(--space-4);
+  padding: 12px 56px;
 }
 .nav-brand { font-family: var(--font-heading); font-weight: 800; font-size: 18px; margin-right: auto; }
 .nav-links { display: flex; gap: var(--space-4); }

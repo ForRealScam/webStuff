@@ -43,8 +43,8 @@ export default function App() {
       <Cursor />
       {!introDone && <Intro onDone={finishIntro} />}
 
-      <div className="page">
-        <nav className="nav">
+      <header className="nav-bar">
+        <nav className="nav page">
           <span className="nav-brand">amacow</span>
           <div className="nav-links">
             <a href="#floors">Floors</a>
@@ -55,7 +55,9 @@ export default function App() {
           </div>
           <a href={DISCORD} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Message on Discord</a>
         </nav>
+      </header>
 
+      <div className="page">
         <div className="pad">
           <section className={introDone ? 'hero reveal' : 'hero'}>
             <h1>
