@@ -129,7 +129,7 @@ export default function App() {
               <span className="kicker">About</span>
               <h2 style={{ margin: 0 }}>Five years in Luau. Still a student.</h2>
             </div>
-            <div style={{ fontSize: '15.5px', lineHeight: '28px', color: 'var(--color-neutral-800)' }}>
+            <div className="about-body">
               <p style={{ margin: '0 0 28px' }}>
                 I have 5 years of experience scripting on Roblox and I am a 3rd year university
                 student. I build server-authoritative systems with clean module boundaries, so what
@@ -197,7 +197,7 @@ export default function App() {
                 </tbody>
               </table>
             </div>
-            <p style={{ fontSize: 13, color: 'var(--color-neutral-700)', margin: '16px 0 0' }}>
+            <p className="price-note">
               Systems only — I do not script full games. Robux is an alternative to USD on every
               tier, paid by group payout, and never a percentage of the game.
             </p>
@@ -241,8 +241,10 @@ export default function App() {
             </>
           )}
         </div>
+      </div>
 
-        <section id="contact" className="contact" ref={contactRef}>
+      <section id="contact" className="contact">
+        <div className="page contact-inner" ref={contactRef}>
           <h3>Message me on Discord.</h3>
           <div className="close-grid">
             <div>
@@ -260,13 +262,13 @@ export default function App() {
               <a href={DISCORD} target="_blank" rel="noopener noreferrer" className="btn">Message me</a>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <footer className="footer">
-          <span>© {new Date().getFullYear()} amacow · Roblox scripter</span>
-          <span>Discord is the only contact channel.</span>
-        </footer>
-      </div>
+      <footer className="footer page">
+        <span>© {new Date().getFullYear()} amacow · Roblox scripter</span>
+        <span>Discord is the only contact channel.</span>
+      </footer>
     </>
   )
 }
