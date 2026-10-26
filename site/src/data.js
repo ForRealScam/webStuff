@@ -1,45 +1,45 @@
 export const videos = [
   {
-    n: 1,
-    title: 'Vehicle chassis',
-    desc: 'Raycast suspension, network ownership handoff, drift tuning.',
-    tag: 'Vehicles',
-    src: 'videos/Car.mp4'
-  },
-  {
-    n: 2,
-    title: 'Carpet wash system',
-    desc: 'Cleaning game built on EditableImage, dirt painted away pixel by pixel as you scrub.',
-    tag: 'Simulators',
-    src: 'videos/CarpetWash.mp4'
-  },
-  {
-    n: 3,
-    title: 'Dynamic skill tree',
-    desc: 'Nodes unlock from a config table, points spent server side, progression saved between sessions.',
-    tag: 'Progression',
-    src: 'videos/DynamicSkillTreeWithProgressionSaving.mp4'
-  },
-  {
-    n: 4,
-    title: 'Helldivers dive system',
-    desc: 'Dive on input, with a camera that shifts framing dynamically from mouse distance and position.',
-    tag: 'Combat',
-    src: 'videos/HellDiversBasedSystemWithDynamicCamera.mp4'
-  },
-  {
-    n: 5,
     title: 'Parkour system',
     desc: 'IK driven movement with dynamic sliding, wall running and wall climbing.',
     tag: 'Movement',
+    points: ['IK driven movement', 'Dynamic sliding', 'Wall running and wall climbing'],
     src: 'videos/ParkourSystem.mp4'
   },
   {
-    n: 6,
     title: 'PVE melee combat',
     desc: 'Enemy AI that fights back, built on a melee kit with light and heavy attacks, blocking and parries.',
     tag: 'Combat',
+    points: ['Enemy AI that fights back', 'Light and heavy attacks', 'Blocking and parries'],
     src: 'videos/PVE.mp4'
+  },
+  {
+    title: 'Vehicle chassis',
+    desc: 'Raycast suspension, network ownership handoff, drift tuning.',
+    tag: 'Vehicles',
+    points: ['Raycast suspension', 'Network ownership handoff', 'Drift tuning'],
+    src: 'videos/Car.mp4'
+  },
+  {
+    title: 'Helldivers dive system',
+    desc: 'Dive on input, with a camera that shifts framing dynamically from mouse distance and position.',
+    tag: 'Combat',
+    points: ['Dive on input', 'Camera framing driven by mouse distance and position'],
+    src: 'videos/HellDiversBasedSystemWithDynamicCamera.mp4'
+  },
+  {
+    title: 'Dynamic skill tree',
+    desc: 'Nodes unlock from a config table, points spent server side, progression saved between sessions.',
+    tag: 'Progression',
+    points: ['Nodes defined in a config table', 'Points spent server side', 'Progression saved between sessions'],
+    src: 'videos/DynamicSkillTreeWithProgressionSaving.mp4'
+  },
+  {
+    title: 'Carpet wash system',
+    desc: 'Cleaning game built on EditableImage, dirt painted away pixel by pixel as you scrub.',
+    tag: 'Simulators',
+    points: ['Built on EditableImage', 'Dirt removed pixel by pixel as you scrub'],
+    src: 'videos/CarpetWash.mp4'
   }
 ]
 
@@ -110,11 +110,11 @@ export const shipped = {
   url: null
 }
 
-export const steps = [
-  { title: 'Message me', text: 'Send a short brief on Discord: what the system does, and screenshots or references if you have them.' },
-  { title: 'Get a quote', text: 'I place it in a tier and give you a price and turnaround before any work starts.' },
-  { title: 'Half up front', text: 'Pay 50% in USD, or Robux by group payout. Then I build it.' },
-  { title: 'Delivery', text: 'Documented source dropped into your place. Revisions within scope included, then the other half.' }
+export const terms = [
+  { label: 'Quote', text: 'Send a short brief on Discord. I place it in a tier and confirm price and turnaround before any work starts.' },
+  { label: 'Payment', text: '50% up front, 50% on delivery. USD, or Robux by group payout. Never a percentage of the game.' },
+  { label: 'Revisions', text: 'Included while they stay within the original brief.' },
+  { label: 'Delivery', text: 'Documented source dropped into your place.' }
 ]
 
 export const faq = [

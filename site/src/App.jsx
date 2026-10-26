@@ -5,9 +5,9 @@ import Cursor from './components/Cursor.jsx'
 import CountUp from './components/CountUp.jsx'
 import PriceCell from './components/PriceCell.jsx'
 import Intro, { shouldPlayIntro } from './components/Intro.jsx'
-import VideoCard from './components/VideoCard.jsx'
+import CaseRow from './components/CaseRow.jsx'
 import YouTubeEmbed from './components/YouTubeEmbed.jsx'
-import { videos, tiers, stats, specialties, shipped, steps, faq, testimonials, DISCORD } from './data.js'
+import { videos, tiers, stats, specialties, shipped, terms, faq, testimonials, DISCORD } from './data.js'
 
 export default function App() {
   const [introDone, setIntroDone] = useState(() => !shouldPlayIntro())
@@ -19,8 +19,6 @@ export default function App() {
   const workHeadRef = useScrollReveal({ selector: ':scope > *', step: 70 })
   const workGridRef = useScrollReveal({ selector: ':scope > *', step: 90, shift: 36 })
   const aboutRef = useScrollReveal({ selector: ':scope > div', step: 110 })
-  const stepsHeadRef = useScrollReveal({ selector: ':scope > *', step: 70 })
-  const stepsRef = useScrollReveal({ selector: ':scope > li', step: 90, shift: 24 })
   const priceHeadRef = useScrollReveal({ selector: ':scope > *', step: 70 })
   const priceRowsRef = useScrollReveal({ selector: 'tbody tr', step: 70, shift: 18 })
   const faqHeadRef = useScrollReveal({ selector: ':scope > *', step: 70 })
@@ -110,16 +108,15 @@ export default function App() {
 
           <section id="work" className="section">
             <div className="sec-head" ref={workHeadRef}>
-              <span className="kicker">Work — demo videos</span>
+              <span className="kicker">Demo videos</span>
               <h2>Six systems, recorded in Studio.</h2>
             </div>
-            <div className="vgrid" ref={workGridRef}>
-              {videos.map((v) => <VideoCard key={v.n} item={v} />)}
-              <div className="vgrid-tail">
-                <span className="kicker" style={{ marginBottom: 0 }}>Also scripted</span>
-                <TagRow items={specialties} />
-              </div>
+            <div className="cases" ref={workGridRef}>
+              {videos.map((v) => <CaseRow key={v.src} item={v} />)}
             </div>
+            <p className="also">
+              Also scripted: {specialties.map((s) => (/^[A-Z][a-z]/.test(s) ? s[0].toLowerCase() + s.slice(1) : s)).join(', ')}.
+            </p>
           </section>
 
           <hr className="hr" />
@@ -146,27 +143,9 @@ export default function App() {
 
           <hr className="hr" />
 
-          <section id="process" className="section">
-            <div className="sec-head" ref={stepsHeadRef}>
-              <span className="kicker">How it works</span>
-              <h2>From brief to delivery in four steps.</h2>
-            </div>
-            <ol className="steps" ref={stepsRef}>
-              {steps.map((s, i) => (
-                <li key={s.title}>
-                  <span className="vcard-n">0{i + 1}</span>
-                  <strong className="step-title">{s.title}</strong>
-                  <p>{s.text}</p>
-                </li>
-              ))}
-            </ol>
-          </section>
-
-          <hr className="hr" />
-
           <section id="pricing" className="section">
             <div className="sec-head" ref={priceHeadRef}>
-              <span className="kicker">Pricing — per system</span>
+              <span className="kicker">Pricing</span>
               <h2>Priced by scope, not by the hour. Systems, not full games.</h2>
             </div>
             <div className="table-wrap" ref={priceRowsRef}>
@@ -197,10 +176,14 @@ export default function App() {
                 </tbody>
               </table>
             </div>
-            <p className="price-note">
-              Systems only — I do not script full games. Robux is an alternative to USD on every
-              tier, paid by group payout, and never a percentage of the game.
-            </p>
+            <dl className="terms">
+              {terms.map((t) => (
+                <div key={t.label}>
+                  <dt>{t.label}</dt>
+                  <dd>{t.text}</dd>
+                </div>
+              ))}
+            </dl>
           </section>
 
           <hr className="hr" />
