@@ -110,17 +110,14 @@ export const shipped = {
   url: null
 }
 
-export const terms = [
-  { label: 'Quote', text: 'Send a short brief on Discord. I place it in a tier and confirm price and turnaround before any work starts.' },
-  { label: 'Payment', text: '50% up front, 50% on delivery. USD, or Robux by group payout. Never a percentage of the game.' },
-  { label: 'Revisions', text: 'Included while they stay within the original brief.' },
-  { label: 'Delivery', text: 'Documented source dropped into your place.' }
-]
-
 export const faq = [
   {
     q: 'Do you script full games?',
     a: 'No. I build systems: combat, saving, UI, vehicles, AI and the like. If you need a whole game, I can take it one system at a time.'
+  },
+  {
+    q: 'How does a commission work?',
+    a: 'Send a short brief on Discord. I place it in a tier and confirm the price and turnaround before any work starts. You pay 50% up front and the other 50% once the documented source is in your place.'
   },
   {
     q: 'How does paying in Robux work?',

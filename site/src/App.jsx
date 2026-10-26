@@ -7,7 +7,7 @@ import PriceCell from './components/PriceCell.jsx'
 import Intro, { shouldPlayIntro } from './components/Intro.jsx'
 import CaseRow from './components/CaseRow.jsx'
 import YouTubeEmbed from './components/YouTubeEmbed.jsx'
-import { videos, tiers, stats, specialties, shipped, terms, faq, testimonials, DISCORD } from './data.js'
+import { videos, tiers, stats, specialties, shipped, faq, testimonials, DISCORD } from './data.js'
 
 export default function App() {
   const [introDone, setIntroDone] = useState(() => !shouldPlayIntro())
@@ -176,14 +176,6 @@ export default function App() {
                 </tbody>
               </table>
             </div>
-            <dl className="terms">
-              {terms.map((t) => (
-                <div key={t.label}>
-                  <dt>{t.label}</dt>
-                  <dd>{t.text}</dd>
-                </div>
-              ))}
-            </dl>
           </section>
 
           <hr className="hr" />

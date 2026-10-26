@@ -289,13 +289,6 @@ a:hover { color: var(--color-accent-600); }
   border-bottom: 2px solid var(--color-divider);
 }
 
-.terms { max-width: 760px; margin: 40px 0 0; border-top: 2px solid var(--color-divider); }
-.terms div {
-  display: grid; grid-template-columns: 140px 1fr; gap: 24px;
-  padding: 14px 0; border-bottom: 1px solid var(--color-divider);
-}
-.terms dt { font-weight: 800; }
-.terms dd { margin: 0; color: var(--color-neutral-800); }
 
 @media (min-width: 701px) {
   .table tbody tr:first-child td { padding-top: 30px; }
@@ -417,8 +410,6 @@ a.close-value:hover { color: var(--color-bg); opacity: 0.8; }
   .case-body h3 { font-size: 34px; }
   .case-points { font-size: 17px; }
   .case-points li { padding: 12px 0; }
-  .terms { max-width: 980px; }
-  .terms div { grid-template-columns: 180px 1fr; }
   .vcard-play { width: 52px; height: 52px; }
   .faq { max-width: 1160px; }
   .faq summary { font-size: 22px; padding: 26px 0; }
@@ -468,7 +459,6 @@ body.intro-lock .cursor-layer { opacity: 0 !important; }
 }
 
 @media (max-width: 700px) {
-  .terms div { grid-template-columns: 1fr; gap: 4px; }
   .contact h3 { font-size: 30px; }
   .close-value { font-size: 21px; overflow-wrap: anywhere; }
   .close-actions { justify-content: flex-start; }
