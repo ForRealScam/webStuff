@@ -95,9 +95,17 @@ export const stats = [
 
 export const shipped = {
   name: 'Floors',
-  role: 'AI scripter',
-  desc: 'I script the AI for Floors: how it behaves, how it picks up sound, and how it finds its way around the map.',
-  points: ['AI behaviour', 'Sound detection', 'Pathfinding'],
+  role: 'AI and systems scripter',
+  desc: 'I script the monster AI for Floors: a state machine that drives how it behaves, sound detection so it reacts to what it hears, and pathfinding to hunt players around the map. I also handle server to client replication, optimize for performance, and debug and fix issues across the codebase.',
+  points: [
+    'AI behaviour',
+    'Monster state machine',
+    'Sound detection',
+    'Pathfinding',
+    'Networking / replication',
+    'Optimization',
+    'Debugging'
+  ],
   youtube: 'KoeNSALcb4o',
   url: null
 }
