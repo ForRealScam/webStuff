@@ -33,6 +33,13 @@ export const videos = [
     desc: 'IK driven movement with dynamic sliding, wall running and wall climbing.',
     tag: 'Movement',
     src: 'videos/ParkourSystem.mp4'
+  },
+  {
+    n: 6,
+    title: 'PVE melee combat',
+    desc: 'Enemy AI that fights back, built on a melee kit with light and heavy attacks, blocking and parries.',
+    tag: 'Combat',
+    src: 'videos/PVE.mp4'
   }
 ]
 
