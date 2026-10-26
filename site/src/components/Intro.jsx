@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 const NAME = 'amacow'
-const HOLD_MS = 2200
+const HOLD_MS = 1200
 const LIFT_MS = 720
 const SEEN_KEY = 'amacow-intro-seen'
 
@@ -54,7 +54,7 @@ export default function Intro({ onDone }) {
     <div className={leaving ? 'intro is-leaving' : 'intro'} aria-hidden="true">
       <div className="intro-name">
         {NAME.split('').map((letter, i) => (
-          <span key={i} style={{ animationDelay: `${i * 70}ms` }}>{letter}</span>
+          <span key={i} style={{ animationDelay: `${i * 45}ms` }}>{letter}</span>
         ))}
       </div>
       <div className="intro-rule" />

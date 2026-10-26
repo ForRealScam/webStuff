@@ -74,13 +74,6 @@ export const tiers = [
   }
 ]
 
-export const stats = [
-  { value: '5 yrs', label: 'Scripting in Luau' },
-  { value: '9', label: 'System specialties' },
-  { value: String(videos.length), label: 'Recorded demos' },
-  { value: '<24h', label: 'Reply time on Discord' }
-]
-
 export const specialties = [
   'Combat systems',
   'Data stores',
@@ -92,5 +85,57 @@ export const specialties = [
   'Building systems',
   'AI behaviours'
 ]
+
+export const stats = [
+  { value: '5 yrs', label: 'Scripting in Luau' },
+  { value: String(specialties.length), label: 'System specialties' },
+  { value: String(videos.length), label: 'Recorded demos' },
+  { value: '<24h', label: 'Reply time on Discord' }
+]
+
+export const shipped = {
+  name: 'Floors',
+  role: 'AI scripter',
+  desc: 'I script the AI for Floors: how it behaves, how it picks up sound, and how it finds its way around the map.',
+  points: ['AI behaviour', 'Sound detection', 'Pathfinding'],
+  youtube: 'KoeNSALcb4o',
+  url: null
+}
+
+export const steps = [
+  { title: 'Message me', text: 'Send a short brief on Discord: what the system does, and screenshots or references if you have them.' },
+  { title: 'Get a quote', text: 'I place it in a tier and give you a price and turnaround before any work starts.' },
+  { title: 'Half up front', text: 'Pay 50% in USD, or Robux by group payout. Then I build it.' },
+  { title: 'Delivery', text: 'Documented source dropped into your place. Revisions within scope included, then the other half.' }
+]
+
+export const faq = [
+  {
+    q: 'Do you script full games?',
+    a: 'No. I build systems: combat, saving, UI, vehicles, AI and the like. If you need a whole game, I can take it one system at a time.'
+  },
+  {
+    q: 'How does paying in Robux work?',
+    a: 'Every tier has a Robux price as an alternative to USD, paid by group payout. I never take a percentage of the game.'
+  },
+  {
+    q: 'Who owns the code?',
+    a: 'You do. Once it is paid for, the source lives in your place and you can change or extend it however you like.'
+  },
+  {
+    q: 'What should I send in my first message?',
+    a: 'What the system should do, how players interact with it, and anything it has to plug into. Videos or games that do something similar help a lot.'
+  },
+  {
+    q: 'Can you work inside my existing setup?',
+    a: 'Yes. I work with Rojo and Git, with Knit or custom frameworks, and I can follow your code style and module layout.'
+  },
+  {
+    q: 'What counts as a revision?',
+    a: 'Changes that keep to the original brief, such as tuning values, fixing behaviour or adjusting UI. New features outside the brief are quoted separately.'
+  }
+]
+
+export const testimonials = []
 
 export const DISCORD = 'https://discord.com/users/506442617253527552'

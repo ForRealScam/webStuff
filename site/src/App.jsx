@@ -6,7 +6,8 @@ import CountUp from './components/CountUp.jsx'
 import PriceCell from './components/PriceCell.jsx'
 import Intro, { shouldPlayIntro } from './components/Intro.jsx'
 import VideoCard from './components/VideoCard.jsx'
-import { videos, tiers, stats, specialties, DISCORD } from './data.js'
+import YouTubeEmbed from './components/YouTubeEmbed.jsx'
+import { videos, tiers, stats, specialties, shipped, steps, faq, testimonials, DISCORD } from './data.js'
 
 export default function App() {
   const [introDone, setIntroDone] = useState(() => !shouldPlayIntro())
@@ -14,11 +15,17 @@ export default function App() {
   const finishIntro = useCallback(() => setIntroDone(true), [])
 
   const statsRef = useScrollReveal({ selector: ':scope > div', step: 80, active: introDone })
+  const shippedRef = useScrollReveal({ selector: ':scope > div', step: 110 })
   const workHeadRef = useScrollReveal({ selector: ':scope > *', step: 70 })
   const workGridRef = useScrollReveal({ selector: ':scope > *', step: 90, shift: 36 })
   const aboutRef = useScrollReveal({ selector: ':scope > div', step: 110 })
+  const stepsHeadRef = useScrollReveal({ selector: ':scope > *', step: 70 })
+  const stepsRef = useScrollReveal({ selector: ':scope > li', step: 90, shift: 24 })
   const priceHeadRef = useScrollReveal({ selector: ':scope > *', step: 70 })
   const priceRowsRef = useScrollReveal({ selector: 'tbody tr', step: 70, shift: 18 })
+  const faqHeadRef = useScrollReveal({ selector: ':scope > *', step: 70 })
+  const faqRef = useScrollReveal({ selector: ':scope > details', step: 60, shift: 18 })
+  const quotesRef = useScrollReveal({ selector: ':scope > *', step: 90 })
   const contactRef = useScrollReveal({ selector: ':scope > *', step: 110 })
 
   async function copyName() {
@@ -40,9 +47,10 @@ export default function App() {
         <nav className="nav">
           <span className="nav-brand">amacow</span>
           <div className="nav-links">
+            <a href="#floors">Floors</a>
             <a href="#work">Work</a>
-            <a href="#about">About</a>
             <a href="#pricing">Pricing</a>
+            <a href="#faq">FAQ</a>
             <a href="#contact">Contact</a>
           </div>
           <a href={DISCORD} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Message on Discord</a>
@@ -55,8 +63,8 @@ export default function App() {
               <span className="hero-line"><span>that ship.</span></span>
             </h1>
             <p className="hero-lede">
-              Luau scripter with 5 years of experience. Combat, data saving, UI, simulators,
-              vehicles, anti-cheat, monetization. Third-year university student; available for
+              Luau scripter with 5 years of experience and AI work on Floors. Combat, data
+              saving, UI, simulators, vehicles, anti-cheat, monetization. Third-year university student; available for
               commissions.
             </p>
             <div className="hero-actions">
@@ -74,6 +82,26 @@ export default function App() {
                 <p className="stat-label">{s.label}</p>
               </div>
             ))}
+          </section>
+
+          <hr className="hr" />
+
+          <section id="floors" className="split shipped" ref={shippedRef}>
+            <div>
+              <span className="kicker">Shipped work</span>
+              <h2>{shipped.name}</h2>
+              <p className="shipped-role">{shipped.role}</p>
+              <p className="shipped-desc">{shipped.desc}</p>
+              <TagRow items={shipped.points} />
+              {shipped.url && (
+                <a href={shipped.url} target="_blank" rel="noopener noreferrer" className="btn btn-ghost shipped-link">
+                  Play on Roblox
+                </a>
+              )}
+            </div>
+            <div>
+              <YouTubeEmbed id={shipped.youtube} title={`${shipped.name} gameplay`} />
+            </div>
           </section>
 
           <hr className="hr" />
@@ -116,6 +144,24 @@ export default function App() {
 
           <hr className="hr" />
 
+          <section id="process" className="section">
+            <div className="sec-head" ref={stepsHeadRef}>
+              <span className="kicker">How it works</span>
+              <h2>From brief to delivery in four steps.</h2>
+            </div>
+            <ol className="steps" ref={stepsRef}>
+              {steps.map((s, i) => (
+                <li key={s.title}>
+                  <span className="vcard-n">0{i + 1}</span>
+                  <strong className="step-title">{s.title}</strong>
+                  <p>{s.text}</p>
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          <hr className="hr" />
+
           <section id="pricing" className="section">
             <div className="sec-head" ref={priceHeadRef}>
               <span className="kicker">Pricing — per system</span>
@@ -151,11 +197,47 @@ export default function App() {
             </div>
             <p style={{ fontSize: 13, color: 'var(--color-neutral-700)', margin: '16px 0 0' }}>
               Systems only — I do not script full games. Robux is an alternative to USD on every
-              tier, paid by group payout — debugging from 1K, simple scripts 1K to 15K. Never a
-              percentage of the game. Half up front, half on delivery; revisions within scope
-              included.
+              tier, paid by group payout, and never a percentage of the game.
             </p>
           </section>
+
+          <hr className="hr" />
+
+          <section id="faq" className="section">
+            <div className="sec-head" ref={faqHeadRef}>
+              <span className="kicker">FAQ</span>
+              <h2>Before you message.</h2>
+            </div>
+            <div className="faq" ref={faqRef}>
+              {faq.map((f) => (
+                <details key={f.q}>
+                  <summary>{f.q}</summary>
+                  <p>{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+
+          {testimonials.length > 0 && (
+            <>
+              <hr className="hr" />
+              <section className="section">
+                <span className="kicker">Clients</span>
+                <h2>What people say.</h2>
+                <div className="quotes" ref={quotesRef}>
+                  {testimonials.map((t) => (
+                    <blockquote className="quote" key={t.who}>
+                      <p>“{t.quote}”</p>
+                      <footer>
+                        <strong>{t.who}</strong>
+                        {t.context && <span> · {t.context}</span>}
+                      </footer>
+                    </blockquote>
+                  ))}
+                </div>
+              </section>
+            </>
+          )}
         </div>
 
         <section id="contact" className="contact" ref={contactRef}>

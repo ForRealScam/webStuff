@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { animate, createAnimatable, createSpring } from 'animejs'
 
-const INTERACTIVE = 'a, button, .tag-live'
+const INTERACTIVE = 'a, button, summary, .tag-live'
 const HIDDEN = '.vcard-media'
 const READABLE = 'p, h1, h2, h3, td, th, figcaption, .facts'
 const ON_ACCENT = '#contact, .intro'
