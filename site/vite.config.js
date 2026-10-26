@@ -6,11 +6,11 @@ export default defineConfig({
     base: './',
     server: {
         host: true,
-        allowedHosts: ['amacow.lt', 'www.amacow.lt']
+        allowedHosts: ['portfolio.amacow.lt', 'www.amacow.lt']
     },
     preview: {
         host: true,
         port: 4173,
-        allowedHosts: ['amacow.lt', 'www.amacow.lt']
+        allowedHosts: ['portfolio.amacow.lt', 'www.amacow.lt']
     }
 })
