@@ -166,14 +166,14 @@ export default function App() {
               <span className="close-value">amacow</span>
             </div>
             <div>
-              <span className="close-label">Server</span>
-              <a href={DISCORD} target="_blank" rel="noopener noreferrer" className="close-value">discord.gg/EVxxN9jFKj</a>
+              <span className="close-label">Profile</span>
+              <a href={DISCORD} target="_blank" rel="noopener noreferrer" className="close-value">Open on Discord</a>
             </div>
             <div className="close-actions">
               <button type="button" className="btn" onClick={copyName} aria-live="polite">
                 {copied ? 'Copied' : 'Copy username'}
               </button>
-              <a href={DISCORD} target="_blank" rel="noopener noreferrer" className="btn">Join the server</a>
+              <a href={DISCORD} target="_blank" rel="noopener noreferrer" className="btn">Message me</a>
             </div>
           </div>
         </section>

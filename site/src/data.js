@@ -79,4 +79,4 @@ export const specialties = [
   'AI behaviours'
 ]
 
-export const DISCORD = 'https://discord.gg/EVxxN9jFKj'
+export const DISCORD = 'https://discord.com/users/506442617253527552'
