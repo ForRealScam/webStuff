@@ -3,6 +3,16 @@ import { useEffect, useState } from 'react'
 const NAME = 'amacow'
 const HOLD_MS = 2200
 const LIFT_MS = 720
+const SEEN_KEY = 'amacow-intro-seen'
+
+export function shouldPlayIntro() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false
+  try {
+    if (sessionStorage.getItem(SEEN_KEY)) return false
+    sessionStorage.setItem(SEEN_KEY, '1')
+  } catch (e) {}
+  return true
+}
 
 export default function Intro({ onDone }) {
   const [leaving, setLeaving] = useState(false)

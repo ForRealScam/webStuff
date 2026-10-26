@@ -25,29 +25,36 @@ export default function VideoCard({ item }) {
 
   function open() {
     const el = ref.current
-    if (!el) return
+    if (!el || active) return
     setActive(true)
     el.muted = false
     el.controls = true
     el.play().catch(() => {})
-    if (!touch && el.requestFullscreen) el.requestFullscreen().catch(() => {})
+  }
+
+  function onKey(event) {
+    if (event.key !== 'Enter' && event.key !== ' ') return
+    event.preventDefault()
+    open()
   }
 
   const hint = touch ? 'Tap to play with sound' : 'Hover to play · click for sound'
+  const trigger = item.src && !active
+    ? { role: 'button', tabIndex: 0, 'aria-label': `Play ${item.title} demo with sound`, onClick: open, onKeyDown: onKey }
+    : {}
 
   return (
     <figure className="vcard">
-      <div className="vcard-media" onMouseEnter={enter} onMouseLeave={leave}>
+      <div className="vcard-media" onMouseEnter={enter} onMouseLeave={leave} {...trigger}>
         {item.src ? (
           <>
             <video
               ref={ref}
-              src={item.src}
+              src={item.src + '#t=0.1'}
               muted
               loop
               playsInline
               preload="metadata"
-              onClick={open}
               onPlay={() => setPlaying(true)}
               onPause={() => setPlaying(false)}
             />

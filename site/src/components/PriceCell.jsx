@@ -61,13 +61,14 @@ export default function PriceCell({ text, delay = 0 }) {
           observer.disconnect()
 
           const counter = { t: 0 }
-          animate(counter, {
+          running.current = animate(counter, {
             t: 1,
             duration: 1100,
             delay,
             ease: 'out(4)',
             onUpdate: () => write(counter.t),
             onComplete: () => {
+              running.current = null
               renderChars(host, text)
               ready.current = true
             }

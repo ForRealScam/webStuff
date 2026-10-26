@@ -4,12 +4,12 @@ import TagRow from './components/TagRow.jsx'
 import Cursor from './components/Cursor.jsx'
 import CountUp from './components/CountUp.jsx'
 import PriceCell from './components/PriceCell.jsx'
-import Intro from './components/Intro.jsx'
+import Intro, { shouldPlayIntro } from './components/Intro.jsx'
 import VideoCard from './components/VideoCard.jsx'
 import { videos, tiers, stats, specialties, DISCORD } from './data.js'
 
 export default function App() {
-  const [introDone, setIntroDone] = useState(false)
+  const [introDone, setIntroDone] = useState(() => !shouldPlayIntro())
   const [copied, setCopied] = useState(false)
   const finishIntro = useCallback(() => setIntroDone(true), [])
 
@@ -21,10 +21,12 @@ export default function App() {
   const priceRowsRef = useScrollReveal({ selector: 'tbody tr', step: 70, shift: 18 })
   const contactRef = useScrollReveal({ selector: ':scope > *', step: 110 })
 
-  function copyName() {
+  async function copyName() {
     try {
-      navigator.clipboard && navigator.clipboard.writeText('amacow')
-    } catch (e) {}
+      await navigator.clipboard.writeText('amacow')
+    } catch (e) {
+      return
+    }
     setCopied(true)
     setTimeout(() => setCopied(false), 1500)
   }
@@ -37,11 +39,13 @@ export default function App() {
       <div className="page">
         <nav className="nav">
           <span className="nav-brand">amacow</span>
-          <a href="#work">Work</a>
-          <a href="#about">About</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#contact">Contact</a>
-          <a href={DISCORD} className="btn btn-primary">Message on Discord</a>
+          <div className="nav-links">
+            <a href="#work">Work</a>
+            <a href="#about">About</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <a href={DISCORD} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Message on Discord</a>
         </nav>
 
         <div className="pad">
@@ -163,19 +167,19 @@ export default function App() {
             </div>
             <div>
               <span className="close-label">Server</span>
-              <a href={DISCORD} className="close-value">discord.gg/EVxxN9jFKj</a>
+              <a href={DISCORD} target="_blank" rel="noopener noreferrer" className="close-value">discord.gg/EVxxN9jFKj</a>
             </div>
             <div className="close-actions">
-              <button type="button" className="btn" onClick={copyName}>
+              <button type="button" className="btn" onClick={copyName} aria-live="polite">
                 {copied ? 'Copied' : 'Copy username'}
               </button>
-              <a href={DISCORD} className="btn">Join the server</a>
+              <a href={DISCORD} target="_blank" rel="noopener noreferrer" className="btn">Join the server</a>
             </div>
           </div>
         </section>
 
         <footer className="footer">
-          <span>amacow · Roblox scripter</span>
+          <span>© {new Date().getFullYear()} amacow · Roblox scripter</span>
           <span>Discord is the only contact channel.</span>
         </footer>
       </div>

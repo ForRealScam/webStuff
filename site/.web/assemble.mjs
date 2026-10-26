@@ -10,7 +10,7 @@ let js = fs.readFileSync(path.join(dist, 'assets', jsFile), 'utf8')
 const css = fs.readFileSync(path.join(dist, 'assets', cssFile), 'utf8')
 
 const b64 = (f) => 'data:video/mp4;base64,' + fs.readFileSync(path.join('.web', f)).toString('base64')
-js = js.split('e.src+"#t=0.1"').join('e.src')
+js = js.replace(/(\w+)\.src\+"#t=0\.1"/g, '$1.src')
 js = js.split('videos/Car.mp4').join(b64('car.mp4'))
 js = js.split('videos/CarpetWash.mp4').join(b64('carpetwash.mp4'))
 js = js.split('videos/DynamicSkillTreeWithProgressionSaving.mp4').join(b64('skilltree.mp4'))
