@@ -30,7 +30,7 @@ export const videos = [
   {
     n: 5,
     title: 'Parkour system',
-    desc: 'Movement system with parkour moves, recorded in Studio.',
+    desc: 'IK driven movement with dynamic sliding, wall running and wall climbing.',
     tag: 'Movement',
     src: 'videos/ParkourSystem.mp4'
   }
